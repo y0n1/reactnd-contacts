@@ -25,14 +25,15 @@ class App extends Component {
     ]
   }
 
-  removeContact(contact) {
+  handleRemoveContact(contact) {
     const contactId = _contact => _contact.id !== contact.id
     this.setState({contacts: this.state.contacts.filter(contactId)})
   }
+  handleRemoveContact = this.handleRemoveContact.bind(this)
 
   render() {
     return (
-        <ContactsList onRemoveContact={this.removeContact.bind(this)} contacts={this.state.contacts} />
+        <ContactsList onRemoveContact={this.handleRemoveContact} contacts={this.state.contacts} />
     )
   }
 }
