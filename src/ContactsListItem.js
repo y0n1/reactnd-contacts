@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ContactAvatar from './ContactAvatar'
 import ContactDetails from './ContactDetails'
 
-function ContactsListItem(props) {  
+function ContactsListItem(props) {
   return (
     <li className='contact-list-item'>
       <ContactAvatar url={props.contact.avatarURL} />

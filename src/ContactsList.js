@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ContactsListItem from './ContactsListItem'
 import escapeStringRegexp from 'escape-string-regexp'
 import sortBy from 'sort-by'
+import {Link} from 'react-router-dom'
 
 class ContactsList extends Component {
   static propTypes = {
@@ -43,7 +44,7 @@ class ContactsList extends Component {
       <div className="list-contacts">
         <div className="list-contacts-top">
           <input className='search-contacts' placeholder='Search contacts' type="text" value={query} onChange={this.handleUpdateQuery} />
-          <a href="#create" onClick={this.props.onNavigate} className="add-contact">Add Contact</a>
+          <Link to="/create" className="add-contact">Add Contact</Link>
         </div>
         
         {showingContacts.length !== contacts.length && (
@@ -54,11 +55,7 @@ class ContactsList extends Component {
         )}
 
         <ol className='contact-list'>
-          {
-            showingContacts.map(contact => (
-              <ContactsListItem onRemoveContact={onRemoveContact} key={contact.id} contact={contact} />
-            ))
-          }
+          {showingContacts.map(contact => (<ContactsListItem onRemoveContact={onRemoveContact} key={contact.id} contact={contact} />))}
         </ol>
       </div>
     )
