@@ -43,6 +43,7 @@ class ContactsList extends Component {
       <div className="list-contacts">
         <div className="list-contacts-top">
           <input className='search-contacts' placeholder='Search contacts' type="text" value={query} onChange={this.handleUpdateQuery} />
+          <a href="#create" onClick={this.props.onNavigate} className="add-contact">Add Contact</a>
         </div>
         
         {showingContacts.length !== contacts.length && (
